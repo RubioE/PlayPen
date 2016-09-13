@@ -1,0 +1,30 @@
+
+const int ledr = 2;
+const int ledy = 4;
+const int ledb = 6;
+
+
+// the setup routine runs once when you press reset:
+void setup() {
+  // initialize the digital pin as an output.
+  pinMode(ledr, OUTPUT);
+  pinMode(ledy, OUTPUT);
+  pinMode(ledb, OUTPUT);
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+  digitalWrite(ledr, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);               // wait for a second
+  digitalWrite(ledr, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);               // wait for a second
+  digitalWrite(ledy, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);               // wait for a second
+  digitalWrite(ledy, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);               // wait for a second
+  digitalWrite(ledb, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);               // wait for a second
+  digitalWrite(ledb, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);               // wait for a second
+
+}

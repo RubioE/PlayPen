@@ -1,0 +1,36 @@
+
+const int ledg = 10;
+const int ledr = 2;
+const int ledy = 4;
+const int ledb = 6;
+const int but = 8;
+
+// changing variables
+int bState = 0;
+
+// the setup routine runs once when you press reset:
+void setup() {
+  pinMode(ledr, OUTPUT);
+  pinMode(ledy, OUTPUT);
+  pinMode(ledb, OUTPUT);
+  pinMode(ledg, OUTPUT);
+  pinMode(but, INPUT);
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+   
+  bState = digitalRead(but);
+
+  if (bState == HIGH) {
+    digitalWrite(ledg, HIGH);
+    digitalWrite(ledr, HIGH);
+    digitalWrite(ledy, HIGH);
+    digitalWrite(ledb, HIGH);
+  } else {
+    digitalWrite(ledg, LOW);
+    digitalWrite(ledr, LOW);
+    digitalWrite(ledy, LOW);
+    digitalWrite(ledb, LOW);
+  }
+}
