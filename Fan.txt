@@ -1,0 +1,56 @@
+
+const int fan = 10;
+const int ledr = 2;
+const int ledy = 4;
+const int ledb = 6;
+const int but = 8;
+const int tPin = 1;
+const int tPin2 = 0;
+const int Vs = 5000;	// Input voltage in mv
+
+// changing variables
+int bState = 0;
+int mv =0;
+int Temp = 0;
+int Tset = 0;
+
+// byte byteRead;
+
+// the setup routine runs once when you press reset:
+void setup() {
+	Serial.begin(9600);  
+  pinMode(ledr, OUTPUT);
+  pinMode(ledy, OUTPUT);
+  pinMode(ledb, OUTPUT);
+  pinMode(fan, OUTPUT);
+  pinMode(but, INPUT);
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+
+  int ct = analogRead(tPin); 
+  int ct2 = analogRead(tPin2); 
+  mv = (Vs/1024)*ct2;
+  Temp = (mv-500)/10;
+
+  if (Serial.available()) {
+    Tset = Serial.read();
+	if(Tset==44){
+      Serial.println();
+    }else{Serial.write(Tset);
+    }
+
+	Serial.print(Temp);Serial.println(" degrees C");
+
+  }
+ 
+ 
+  if (Temp < Tset) {
+    digitalWrite(fan, HIGH);
+    digitalWrite(ledr, HIGH);
+  } else {
+    digitalWrite(fan, LOW);
+    digitalWrite(ledr, LOW);
+  }
+}
